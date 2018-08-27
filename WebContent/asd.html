@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>飘落的枫叶</title>
+<style>
+.maple { position: absolute; top: 0; color:red;border:1px solid white;
+		width:auto;height:auto; background-color:lightgrey;border-radius: 10px;}
+</style>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body style="background-color: #DECEBE; background-image: url(bg.png); background-repeat: no-repeat; background-position: center 0%;">
+<div class="maplebg"></div>
+<script> 
+	var d;
+	setInterval((function(){
+		var ss=Math.round(Math.random()*6);
+		var arr=new Array("挽梦","晚清","洛溪","嫣然","柳岩","张震","熟识");
+   		d = "<div class='maple'>"+arr[ss]+"<div>"
+	}),10);
+	
+    setInterval(function () {
+        var f = $(document).width();
+        var e = Math.random() * f - 200; // 枫叶的定位left值
+        var o = 0.4 + Math.random(); // 枫叶的透明度
+        var fon = 35 + Math.random() * 10; // 枫叶大小
+        var l = e - 100 + 200 * Math.random(); // 枫叶的横向位移
+        var k = 8000 + 5000 * Math.random();
+        var deg = Math.random() * 360; // 枫叶的方向
+        $(d).clone().appendTo(".maplebg").css({
+            left: e + "px",
+            opacity: o,
+            transform: "rotate(" + deg + "deg)",
+            "font-size": fon,
+        }).animate({
+            top: "750px",
+            left: l + "px",
+            opacity: 0.1,
+        }, k, "linear", function () {
+            $(this).remove()
+        })
+    }, 500)
+</script>
+</body>
+</html>

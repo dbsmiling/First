@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>今日天气</title>
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<style>
+		body{margin: 0;}
+	    .MainBody{width: 1920px;height:auto;margin: 0 auto;background-color:rgb(90,173,174);}
+	    .left_body{width:475px;height:950px;background-image:url(img/right.jpg);position: fixed;
+	    	background-size: 100% 100%;}
+	    .right_body{width: 475px;height: 950px;background-image: url(img/left.jpg);position: fixed;
+	    	background-size: 100% 100%;right:0;}
+		.mid_body{width:970px;height:2000px;margin: auto;}
+		.title{width: 100%;height:150px;}
+		.title .span1{width:40%;height:150px;text-align: center;line-height:150px;font-size: 28px;
+		color: white;float: left;}
+		.title .span2{width:40%;height:150px;text-align:center;line-height:150px;font-size: 24px;
+		color: white;float: left;}
+		.title .span3{width:20%;height:150px;float: left;background-image: url(img/hone.png);
+		background-repeat: no-repeat;background-position-x:20px;background-position-y:20px;}
+</style>
+<body>
+	<div class="MainBody">
+		<div class="left_body"></div>
+		<div class="right_body"></div>
+		<div class="mid_body">
+			<div class="title">
+				<div class="span1">
+				<div style="line-height: 75px;letter-spacing:40px;"><span>今日天气</span></div>
+				<div style="line-height: 75px;letter-spacing: 10px;"><span>Today Weather</span></div>
+				</div>
+				<div class="span2">
+					<div class="div1" style="line-height: 75px;"></div>
+					<div class="div2" style="line-height: 75px;"></div>
+				</div>
+				<a href="index.html"><div class="span3"></div></a>
+			</div>
+			
+		</div>
+	</div>
+</body>
+<script>
+	$(function(){
+		setInterval(timer,1000);
+		function timer(){
+			var time=new Date().toLocaleString();
+			$(".span2 .div1").text(time);
+		};
+		var a=new Array("日","一","二","三","四","五","六");
+		var days=new Date().getDay();
+		$(".span2 .div2").text("星期"+a[days]);
+		
+		
+	});
+</script>
+</html>
